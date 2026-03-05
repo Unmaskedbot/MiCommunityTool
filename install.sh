@@ -35,7 +35,7 @@ mkdir -p $HOME/.micommit
 echo -e "${BLUE}[•] Downloading core tool...${RESET}"
 
 # Download main script
-curl -L https://raw.githubusercontent.com/Unmaskedbot/MiCommuniyTool/main/MiCommunityTool.py \
+curl -L https://raw.githubusercontent.com/danger24bot/Unmaskedbot/MiCommuniyTool/main/MiCommunityTool.py \
 -o $HOME/.micommit/MiCommunityTool.py > /dev/null 2>&1
 
 # Check download
