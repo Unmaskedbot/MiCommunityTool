@@ -27,12 +27,12 @@ pkg install python3
 Run the command below to automatically download and start the tool:
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/helproot/MiCommunityTool/main/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/Unmaskedbot/MiCommuniyTool/main/install.sh | bash
 
 ```
 ### ▶️ Run Tool
 
 After restarting Termux, simply run this command to start MiCommunityTool:
 ```
-#micommunity
+#micommit
 ```
