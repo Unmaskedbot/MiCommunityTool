@@ -20,8 +20,7 @@ import requests, json, hashlib, urllib.parse, time, sys, os, base64, ntplib
 from datetime import datetime, timedelta, timezone
 from urllib.parse import parse_qs, urlparse, quote
 
-version = "2.5.9"
-
+version = "1.5.3"
 # ===== COS =====
 CYAN = "\033[96m"
 GREEN = "\033[92m"
@@ -34,52 +33,52 @@ print(
     f"\n{CYAN}{BOLD}╔══════════════════════════════════════╗{RESET}\n"
     f"{CYAN}{BOLD}║{RESET}    {WHITE}{BOLD}[V{version}] For issues or feedback{RESET}   {CYAN}{BOLD}║{RESET}\n"
     f"{CYAN}{BOLD}╠══════════════════════════════════════╣{RESET}\n"
-    f"{CYAN}{BOLD}║  {RESET} {YELLOW}Telegram Channel:{RESET} {GREEN}t.me/helproot{RESET}    {CYAN}{BOLD}║{RESET}\n"
+    f"{CYAN}{BOLD}║  {RESET} {YELLOW}Telegram Channel:{RESET} {GREEN}t.me/micommit{RESET}    {CYAN}{BOLD}║{RESET}\n"
     f"{CYAN}{BOLD}╠══════════════════════════════════════╣{RESET}\n"
-    f"{CYAN}{BOLD}║   {RESET} {YELLOW}Telegram Bot:{RESET} {GREEN}@HelpRootAppBot{RESET}     {CYAN}{BOLD}║{RESET}\n"
-    f"{CYAN}{BOLD}╠══════════════════════════════════════╣{RESET}\n"
-    f"{CYAN}{BOLD}║         {RESET} {YELLOW}Made By:{RESET} {GREEN}@HelpRoot{RESET}          {CYAN}{BOLD}║{RESET}\n"
+    f"{CYAN}{BOLD}║         {RESET} {YELLOW}Made By:{RESET} {GREEN} micommit {RESET}          {CYAN}{BOLD}║{RESET}\n"
     f"{CYAN}{BOLD}╚══════════════════════════════════════╝{RESET}\n"
 )
+def
 
-# --- AUTHENTICATION FLOW ---
-# NOTE: Ensure 'r', 'cookies', 'headers', 'base_url', 'User', etc., are defined before this block.
-# res = parse(r) 
+    try:
+        r = requests.get(url, params={
+            "chat_id": CHANNEL_USERNAME,
+            "
+    res = parse(r)
 
-# if res["code"] == 70016: exit("invalid user or pwd")
-# if 'notificationUrl' in res:
-#     url = res['notificationUrl']
-#     if any(x in url for x in ['callback','SetEmail','BindAppealOrSafePhone']): exit(url)
-# 
-#     cookies.update({"NativeUserAgent": base64.b64encode(User.encode()).decode()})
-#     params = parse_qs(urlparse(url).query)
-#     cookies.update(requests.get(f"{base_url}/identity/list", params=params, headers=headers, cookies=cookies).cookies.get_dict())
-# 
-#     email = parse(requests.get(f"{base_url}/identity/auth/verifyEmail", params={'_json': True}, cookies=cookies, headers=headers))['maskedEmail']
-#     quota = parse(requests.post(f"{base_url}/identity/pass/sms/userQuota", data={'addressType': 'EM', 'contentType': 160040}, cookies=cookies, headers=headers))['info']
-#     print(f"Account Authentication\nemail: {email}, Remaining attempts: {quota}")
-#     input("\nPress Enter to send the verification code")
-# 
-#     code_res = parse(requests.post(f"{base_url}/identity/auth/sendEmailTicket", cookies=cookies, headers=headers))
-# 
-#     if code_res["code"] == 0: print(f"\nVerification code sent to your {email}")
-#     elif code_res["code"] == 70022: exit("Sent too many codes. Try again tomorrow.")
-#     else: exit(code_res)
-# 
-#     while True:
-#         ticket = input("Enter code: ").strip()
-#         v_res = parse(requests.post(f"{base_url}/identity/auth/verifyEmail", data={'ticket':ticket, 'trust':True}, cookies=cookies, headers=headers))
-#         if v_res["code"] == 70014: print("Verification code error")
-#         elif v_res["code"] == 0:
-#             cookies.update(requests.get(v_res['location'], headers=headers, cookies=cookies).history[1].cookies.get_dict())
-#             cookies.pop("pass_ua", None)
-#             break
-#         else: exit(v_res)
+    if res["code"] == 70016: exit("invalid user or pwd")
+    if 'notificationUrl' in res:
+        url = res['notificationUrl']
+        if any(x in url for x in ['callback','SetEmail','BindAppealOrSafePhone']): exit(url)
 
-# NOTE: Ensure `api`, `User`, `new_bbs_serviceToken`, and `deviceId` are defined.
+        cookies.update({"NativeUserAgent": base64.b64encode(User.encode()).decode()})
+        params = parse_qs(urlparse(url).query)
+        cookies.update(requests.get(f"{base_url}/identity/list", params=params, headers=headers, cookies=cookies).cookies.get_dict())
+
+     email = parse(requests.get(f"{base_url}/identity/auth/verifyEmail", params={'_json': True}, cookies=cookies, headers=headers))['maskedEmail']
+        quota = parse(requests.post(f"{base_url}/identity/pass/sms/userQuota", data={'addressType': 'EM', 'contentType': 160040}, cookies=cookies, headers=headers))['info']
+        print(f"Account Authentication\nemail: {email}, Remaining attempts: {quota}")
+        input("\nPress Enter to send the verification code")
+
+        code_res = parse(requests.post(f"{base_url}/identity/auth/sendEmailTicket", cookies=cookies, headers=headers))
+
+        if code_res["code"] == 0: print(f"\nVerification code sent to your {email}")
+        elif code_res["code"] == 70022: exit("Sent too many codes. Try again tomorrow.")
+        else: exit(code_res)
+
+        while True:
+            ticket = input("Enter code: ").strip()
+            v_res = parse(requests.post(f"{base_url}/identity/auth/verifyEmail", data={'ticket':ticket, 'trust':True}, cookies=cookies, headers=headers))
+            if v_res["code"] == 70014: print("Verification code error")
+            elif v_res["code"] == 0:
+                cookies.update(requests.get(v_res['location'], headers=headers, cookies=cookies).history[1].cookies.get_dict())
+                cookies.pop("pass_ua", None)
+                break
+            else: exit(v_res)
+
+        r = 
 U_apply = api + "apply/bl-auth"
 U_info = api + "user/data"
-U_state = api + "apply/bl-state" # Added this as it is called in state_request()
 
 headers = {
   'User-Agent': User,
@@ -98,6 +97,7 @@ WHITE = "\033[97m"
 BOLD = "\033[1m"
 RESET = "\033[0m"
 
+
 # ===== INFO BOX =====
 info = requests.get(U_info, headers=headers).json()['data']
 
@@ -111,6 +111,7 @@ print(
     f"{CYAN}{BOLD}║        {RESET} {YELLOW}Points:{RESET} {WHITE}{info['level_info']['current_value']}{RESET}                    {CYAN}{BOLD}║{RESET}\n"
     f"{CYAN}{BOLD}╚══════════════════════════════════════╝{RESET}\n"
 )
+
 
 def state_request():
     print(
