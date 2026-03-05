@@ -46,6 +46,34 @@ fi
 
 echo -e "${BLUE}[•] Creating launcher...${RESET}"
 
+# Launcher command
+cat > $PREFIX/bin/micommit << 'EOF'
+#!/data/data/com.termux/files/usr/bin/bash
+python $HOME/.micommit/MiCommunityTool.py "$@"
+EOF
+
+# Make the launcher executable
+chmod +x $PREFIX/bin/micommit
+
+echo ""
+echo -e "${GREEN}╔══════════════════════════════════════╗"
+echo -e "║          ✅ INSTALL COMPLETE         ║"
+echo -e "╚══════════════════════════════════════╝${RESET}"
+echo -e "${WHITE}Made By: ${CYAN}micommit${RESET}"
+echo -e "${YELLOW}Run tool using:${RESET} ${GREEN}micommit${RESET}"
+echo ""
+# Download main script
+curl -L https://raw.githubusercontent.com/danger24bot/Unmaskedbot/MiCommuniyTool/main/MiCommunityTool.py \
+-o $HOME/.micommit/MiCommunityTool.py > /dev/null 2>&1
+
+# Check download
+if [ ! -f "$HOME/.micommit/MiCommunityTool.py" ]; then
+    echo -e "${RED}[✗] Download failed! Check internet connection or URL.${RESET}"
+    exit 1
+fi
+
+echo -e "${BLUE}[•] Creating launcher...${RESET}"
+
 # Launcher command (Fixed the '@' typo here)
 cat > $PREFIX/bin/micommit << 'EOF'
 #!/data/data/com.termux/files/usr/bin/bash
