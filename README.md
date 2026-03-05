@@ -1,2 +1,38 @@
-# MiCommuniyTool
-Auto permission get from Mi Community.
+<div align="center">
+
+# MiCommunityTool
+
+#Get Auto Bootloader Unlock Permission From Mi Community#
+
+[![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python)]()
+[![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20%7C%20MacOS%20%7C%20Android-green)]()
+[![License](https://img.shields.io/badge/License-MIT-yellow)]()
+
+</div>
+
+---
+
+## 📌 About
+
+MiCommunityTool Automatically Submits a Request for **Bootloader Unlocking Permission** for HyperOS Xiaomi & Redmi devices.
+
+---
+
+## 1️⃣ Install **Python 3**
+```
+pkg install python3
+```
+## 🚀Quick Install (Copy & Run)
+
+Run the command below to automatically download and start the tool:
+
+```bash
+curl -sSL https://raw.githubusercontent.com/helproot/MiCommunityTool/main/install.sh | bash
+
+```
+### ▶️ Run Tool
+
+After restarting Termux, simply run this command to start MiCommunityTool:
+```
+#micommunity
+```
