@@ -49,7 +49,7 @@ echo -e "${BLUE}[•] Creating launcher...${RESET}"
 # Launcher command
 cat > $PREFIX/bin/micomtool << 'EOF'
 #!/data/data/com.termux/files/usr/bin/bash
-python $HOME/micomtool/MiCommunityTool.py "$@"
+python $HOME/.micomtool/MiCommunityTool.py "$@"
 EOF
 
 chmod +x $PREFIX/bin/micomtool
