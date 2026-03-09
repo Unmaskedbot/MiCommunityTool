@@ -6,7 +6,8 @@
 
 [![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python)]()
 [![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20%7C%20MacOS%20%7C%20Android-green)]()
-[![License](https://img.shields.io/badge/License-MIT-yellow)]()
+[![Version](https://img.shields.io/badge/version-2.3.3-orange
+)]()
 
 </div>
 
