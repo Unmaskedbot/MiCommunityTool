@@ -35,7 +35,7 @@ mkdir -p $HOME/.micomtool
 echo -e "${BLUE}[•] Downloading core tool...${RESET}"
 
 # Download main script
-curl -L https://github.com/Unmaskedbot/MiCommunityTool/blob/main/MiCommunityTool.py/ \
+curl -L https://github.com/Unmaskedbot/MiCommunityTool/blob/main/MiCommunityTool.py \
 -o $HOME/.micomtool/MiCommunityTool.py > /dev/null 2>&1
 
 # Check download
@@ -49,7 +49,7 @@ echo -e "${BLUE}[•] Creating launcher...${RESET}"
 # Launcher command
 cat > $PREFIX/bin/micomtool << 'EOF'
 #!/data/data/com.termux/files/usr/bin/bash
-python $HOME/.@helproot/MiCommunityTool.py "$@"
+python $HOME/micomtool/MiCommunityTool.py "$@"
 EOF
 
 chmod +x $PREFIX/bin/micomtool
